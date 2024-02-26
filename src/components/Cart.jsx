@@ -1,4 +1,8 @@
-function Cart({ onUpdateItemQuantity, items }) {
+import { useContext } from "react";
+import { CartContext } from "../shop/shopping-cart-context";
+
+function Cart() {
+ const {items, updateItemQuantity} = useContext(CartContext);
 
   let totalPrice = items.reduce((acc, item) => {
     return acc + item.price * item.quantity;
@@ -20,11 +24,11 @@ function Cart({ onUpdateItemQuantity, items }) {
                 <span>{`($${item.price.toFixed(2)})`}</span>
               </div>
               <div className="cart-item-actions">
-                <button onClick={() => onUpdateItemQuantity(item.id, -1)}>
+                <button onClick={() => updateItemQuantity(item.id, -1)}>
                   -
                 </button>
                 <p>{item.quantity}</p>
-                <button onClick={() => onUpdateItemQuantity(item.id, 1)}>
+                <button onClick={() => updateItemQuantity(item.id, 1)}>
                   +
                 </button>
               </div>

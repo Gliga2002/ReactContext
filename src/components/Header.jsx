@@ -2,8 +2,12 @@ import { useRef } from "react";
 
 import logoImg from "../../public/logo.png";
 import CartModal from "./CartModal";
+import { CartContext } from "../shop/shopping-cart-context";
+import { useContext } from "react";
 
-function Header({onUpdateItemQuantity, items}) {
+function Header() {
+const {items} = useContext(CartContext);
+
   const modal = useRef();
 
   function handleOpenModal() {
@@ -26,8 +30,6 @@ function Header({onUpdateItemQuantity, items}) {
    <CartModal 
       title="Your Cart"
       ref={modal}
-      onUpdateItemQuantity={onUpdateItemQuantity}
-      items={items}
       actions={actions}
    />
     <header className="main-header">

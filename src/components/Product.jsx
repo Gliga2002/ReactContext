@@ -1,4 +1,8 @@
-function Product({ id, image, title, price, description, onAddToCart }) {
+import { CartContext } from "../shop/shopping-cart-context";
+import { useContext } from "react";
+
+function Product({ id, image, title, price, description }) {
+  const {addItemToCart} = useContext(CartContext);
   return (
     <article className="product">
       <img src={image} alt="Elegant dressed person" />
@@ -9,7 +13,7 @@ function Product({ id, image, title, price, description, onAddToCart }) {
           <p className="product-description">{description}</p>
         </div>
         <div className="product-actions">
-          <button onClick={() => onAddToCart(id)}>Add to Cart</button>
+          <button onClick={() => addItemToCart(id)}>Add to Cart</button>
         </div>
       </div>
     </article>
