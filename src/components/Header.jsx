@@ -8,6 +8,8 @@ import { useContext } from "react";
 function Header() {
 const {items} = useContext(CartContext);
 
+console.log(items);
+
   const modal = useRef();
 
   function handleOpenModal() {

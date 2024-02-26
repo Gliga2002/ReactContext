@@ -10,8 +10,6 @@ function Cart() {
 
   totalPrice = totalPrice.toFixed(2);
 
-  
-
   return (
     <div className="cart">
       <ul className="cart-items">
